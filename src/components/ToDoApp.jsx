@@ -13,8 +13,8 @@ export const  ToDoApp = () => {
   const [filter, setFilter] = useState('ALL');
 
   // 入力値をtodos(配列)に設定
-  const handleAdd = (Titletext, Contnettext) => {
-    setToDos([...todos, { key: getKey(), Titletext, Contnettext, done: false }]);
+  const handleAdd = text => {
+    setToDos([...todos, { key: getKey(), text, done: false }]);
   };
 
   // フィルターの切り替え
