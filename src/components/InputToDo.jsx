@@ -1,9 +1,30 @@
 import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
+import  usePersist  from '../Persist'
 
 export const InputToDo = (props) => {
   
-    // stateを作成
+  //stateの作成
+  const [memo, setMemo] = usePersist("memo", [])
+  const [Title, setTitle] = useState('')
+
+  //入力値をtextに反映
+  const handleChange = (e)=> {
+    setTitle(e.target.value)
+  }
+
+  //追加ボタンを押したときにToDoに追加
+  const handleBtn = (e)=> {
+    const data = {
+      Title: Title,
+      created: new Date()
+    }
+    memo.unshift(data)
+    setMemo(memo)
+    setTitle('')
+  }
+
+    /* stateを作成
     const [Texts, setTexts] = useState({
       Title: '',
       Content: '',
@@ -17,7 +38,7 @@ export const InputToDo = (props) => {
       setTexts({ ...Texts, [name]: value });
     }
   
-    // Enter押下時、ToDoに追加
+    //Enter押下時、ToDoに追加
     const handleEnter = e => {
       if (e.key === 'Enter') {
           // 入力値が空白文字の場合終了
@@ -26,35 +47,29 @@ export const InputToDo = (props) => {
         props.onAdd(Texts);
         setTexts('');
       }
-    };
+    };*/
     
     return (
+      <form onSubmit={handleBtn} action="">
       <div className="panel-block">
         <label>
-          タイトル
+          項目
         <input
           class="input"
           type="text"
           name="Title"
           placeholder="タイトル"  
-          defaultValue={Texts.Title}
+          value={Title}
           onChange={handleChange}
-          onKeyPress={handleEnter}
+        />
+        <input
+          class="btn"
+          type="submit" 
+          value="追加" 
         />
         </label>
-        <label>
-          内容
-        <input 
-          class="input"
-          type="text"
-          name="Content"
-          placeholder="内容"
-          defaultValue={Texts.Content}
-          onChange={handleChange}
-          onKeyPress={handleEnter}
-        ></input>
-        </label>
       </div>
+      </form>
     );
   }
 
