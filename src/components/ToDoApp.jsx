@@ -17,6 +17,11 @@ export const  ToDoApp = () => {
     setToDos([...todos, { key: getKey(), text, done: false }]);
   };
 
+  // 項目の削除
+  const handleDelete = todokey => {
+    setToDos((prevtodos) => prevtodos.filter(todo => todo.key !== todokey));
+  };
+
   // フィルターの切り替え
   const handleFilterChange = value => setFilter(value);
 
@@ -54,6 +59,7 @@ export const  ToDoApp = () => {
           key={todo.key}
           todo={todo}
           onCheck={handleCheck}
+          onClick={handleDelete}
           />
       ))}
       <div className="panel-block">
