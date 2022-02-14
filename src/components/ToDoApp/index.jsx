@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
 
-import { InputToDo, Filter, ToDo } from './index';
+import { InputToDo, Filter, ToDo } from '../index';
 
 export const  ToDoApp = () => {
 
@@ -13,8 +13,8 @@ export const  ToDoApp = () => {
   const [filter, setFilter] = useState('ALL');
 
   // 入力値をtodos(配列)に設定
-  const handleAdd = text => {
-    setToDos([...todos, { key: getKey(), text, done: false }]);
+  const handleAdd = (text, Content) => {
+    setToDos([...todos, { key: getKey(), text, Content, done: false }]);
   };
 
   // 項目の削除
@@ -30,6 +30,7 @@ export const  ToDoApp = () => {
     if (filter === 'ALL') return true;
     if (filter === 'TODO') return !todo.done;
     if (filter === 'DONE') return todo.done;
+    return true;
   });
 
   // チェックボックス判定
@@ -49,7 +50,7 @@ export const  ToDoApp = () => {
       <div className="panel-heading">
         ToDo
       </div>
-      <InputToDo onAdd={handleAdd} />
+      <InputToDo onAdd={handleAdd}/>
       <Filter
         onChange={handleFilterChange}
         value={filter}

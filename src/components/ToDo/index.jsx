@@ -1,6 +1,5 @@
-import classNames from 'classnames';
 import 'bulma/css/bulma.css';
-import '../styles.css';
+import './styles.css';
 
 export const ToDo = (props) => {
 
@@ -18,25 +17,27 @@ export const ToDo = (props) => {
   };
 
   return (
-    <label className="panel-block">
+    <div className="all" >
       <input
         type="checkbox"
+        className='check'
         checked={todo.done}
         onChange={handleChange}
       />
-      <span
-        className={classNames({
-          'has-text-grey-light': todo.done
-        })}
-      >
+      <div className='text'>
+      <p className='text1'>
         {todo.text}
-      </span>
+      </p>
+      <p className='text2'>
+        {todo.Content}
+      </p>
+      </div>
       <button
         type="button"
         className="deletebutton"
         onClick={handleClick}
-        >×</button>
-    </label>
+        >削除</button>
+    </div>
   );
 }
 

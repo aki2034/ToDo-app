@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import 'bulma/css/bulma.css';
 
 export const Filter = (props) => {
 
