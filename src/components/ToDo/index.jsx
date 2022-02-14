@@ -24,7 +24,7 @@ export const ToDo = (props) => {
         checked={todo.done}
         onChange={handleChange}
       />
-      <div className='text'>
+      <div className={todo.done ? 'text done':'text'}      >
       <p className='text1'>
         {todo.text}
       </p>

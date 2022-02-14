@@ -13,6 +13,10 @@
     margin: auto;
 }
 
+.done{
+    color: lightgray;
+}
+
 .text1{
     text-align: center;
     font-size: 25px;
@@ -37,4 +41,3 @@
     line-height: 2px;
     background-color: rgb(255, 255, 255);
 }
-
