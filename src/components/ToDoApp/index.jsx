@@ -13,24 +13,42 @@ export const  ToDoApp = () => {
   const [filter, setFilter] = useState('ALL');
 
   // 入力値をtodos(配列)に設定
-  const handleAdd = (Title, Content) => {
-    setToDos([...todos, { key: getKey(), Title, Content, done: false }]);
+  const handleAdd = (Title, Contents) => {
+    setToDos([...todos, { key: getKey(), Title, Contents, done: false }]);
   };
 
-  /* 項目の編集
-  const handleEdit = (key, newTitle, newContent) => {
-    const editToDo = todos.map(todo => {
-      if(key === todo.key) {
-        //
-        return {...todo, Title: newTitle, Content: newContent}
+  //項目の編集
+  const handleOnEdit = (key, value) => {
+    /**
+     * ディープコピー:
+     * 同じく Array.map() を利用するが、それぞれの要素をスプレッド構文で
+     * いったんコピーし、それらのコピー (= Todo 型オブジェクト) を要素とする
+     * 新しい配列を再生成する。
+     *
+     * 以下と同義:
+     * const deepCopy = todos.map((todo) => ({
+     *   value: todo.value,
+     *   id: todo.id,
+     * }));
+     */
+    const deepCopy = todos.map((todo) => ({ ...todo }));
+
+    // ディープコピーされた配列に Array.map() を適用
+    const newToDos = deepCopy.map((todo) => {
+      if(todo.key === key) {
+        todo.value = value;
       }
       return todo;
     });
-    setToDos(editToDo);
-  };*/
+    
+    console.log('=== Original todos ===');
+    todos.map((todo) => console.log(`key: ${todo.key}, value: ${todo.value}`));
+
+    setToDos(newToDos);
+  };
 
   // 項目の削除
-  const handleDelete = todokey => {
+  const deleteClick = todokey => {
     setToDos((prevtodos) => prevtodos.filter(todo => todo.key !== todokey));
   };
 
@@ -44,6 +62,8 @@ export const  ToDoApp = () => {
     if (filter === 'DONE') return todo.done;
     return true;
   });
+
+  
 
   // チェックボックス判定
   const handleCheck = checked => {
@@ -72,7 +92,8 @@ export const  ToDoApp = () => {
           key={todo.key}
           todo={todo}
           onCheck={handleCheck}
-          onClick={handleDelete}
+          onChange={handleOnEdit}
+          onClick={deleteClick}
           />
       ))}
       <div className="panel-block">
