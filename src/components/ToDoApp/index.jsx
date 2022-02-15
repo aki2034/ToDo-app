@@ -13,9 +13,21 @@ export const  ToDoApp = () => {
   const [filter, setFilter] = useState('ALL');
 
   // 入力値をtodos(配列)に設定
-  const handleAdd = (text, Content) => {
-    setToDos([...todos, { key: getKey(), text, Content, done: false }]);
+  const handleAdd = (Title, Content) => {
+    setToDos([...todos, { key: getKey(), Title, Content, done: false }]);
   };
+
+  /* 項目の編集
+  const handleEdit = (key, newTitle, newContent) => {
+    const editToDo = todos.map(todo => {
+      if(key === todo.key) {
+        //
+        return {...todo, Title: newTitle, Content: newContent}
+      }
+      return todo;
+    });
+    setToDos(editToDo);
+  };*/
 
   // 項目の削除
   const handleDelete = todokey => {

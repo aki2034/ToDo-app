@@ -4,7 +4,7 @@
 }
 
 .check{
-    margin-left: 15px;
+    margin-left: 5%;
     margin-top: auto;
     margin-bottom: auto;
 }
@@ -30,8 +30,25 @@
 
 }
 
-.deletebutton {
-    margin-right: 25px;
+.btn{
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.editbtn {
+    margin-right: 5%;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 50px;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 2px;
+    background-color: rgb(255, 255, 255);
+}
+
+.deletebtn {
+    margin-right: 5%;
     margin-top: auto;
     margin-bottom: auto;
     width: 50px;

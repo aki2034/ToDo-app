@@ -1,4 +1,3 @@
-import 'bulma/css/bulma.css';
 import './styles.css';
 
 export const ToDo = (props) => {
@@ -24,19 +23,26 @@ export const ToDo = (props) => {
         checked={todo.done}
         onChange={handleChange}
       />
-      <div className={todo.done ? 'text done':'text'}      >
+      <div className={todo.done ? 'text done':'text'}>
       <p className='text1'>
-        {todo.text}
+        {todo.Title}
       </p>
       <p className='text2'>
         {todo.Content}
       </p>
       </div>
-      <button
-        type="button"
-        className="deletebutton"
-        onClick={handleClick}
+      <div className='btn'>
+        <button
+          type="button"
+          className="editbtn"
+          onClick={handleClick}
+        >編集</button>
+        <button
+          type="button"
+          className="deletebtn"
+          onClick={handleClick}
         >削除</button>
+      </div>
     </div>
   );
 }
