@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bulma/css/bulma.css';
 
 import { InputToDo, Filter, ToDo } from '../index';
@@ -12,13 +12,18 @@ export const  ToDoApp = () => {
   const [todos, setToDos] = useState([]);
   const [filter, setFilter] = useState('ALL');
 
+
+  useEffect(() => {
+    console.log(todos)
+  }, [todos] )
+
   // 入力値をtodos(配列)に設定
   const handleAdd = (Title, Contents) => {
     setToDos([...todos, { key: getKey(), Title, Contents, done: false }]);
   };
 
   //項目の編集
-  const handleOnEdit = (key, value) => {
+  const handleOnEdit = (key, Title, Contents) => {
     /**
      * ディープコピー:
      * 同じく Array.map() を利用するが、それぞれの要素をスプレッド構文で
@@ -36,14 +41,12 @@ export const  ToDoApp = () => {
     // ディープコピーされた配列に Array.map() を適用
     const newToDos = deepCopy.map((todo) => {
       if(todo.key === key) {
-        todo.value = value;
+        todo.Title = Title;
+        todo.Contents = Contents;
       }
       return todo;
     });
     
-    console.log('=== Original todos ===');
-    todos.map((todo) => console.log(`key: ${todo.key}, value: ${todo.value}`));
-
     setToDos(newToDos);
   };
 
@@ -62,8 +65,6 @@ export const  ToDoApp = () => {
     if (filter === 'DONE') return todo.done;
     return true;
   });
-
-  
 
   // チェックボックス判定
   const handleCheck = checked => {
