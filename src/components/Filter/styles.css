@@ -1,0 +1,15 @@
+.tabs{
+    text-align: center;
+    margin: 5px;
+    display: block;
+}
+
+.tab{
+    margin: auto;
+    font-size: 18px;
+    color: blue;
+}
+
+.selected{
+    color: red;
+}

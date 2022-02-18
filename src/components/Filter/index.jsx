@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import './styles.css';
 
 export const Filter = (props) => {
 
@@ -12,22 +13,22 @@ export const Filter = (props) => {
   };
 
   return (
-    <div className="panel-tabs">
+    <div className="tabs">
       <a
         href="/#"
         onClick={handleClick.bind(null, 'ALL')}
-        className={classNames({ 'is-active': value === 'ALL' })}
+        className={`tab ${value === 'ALL' ? 'selected' : ""}`}
       >全て</a>
       <a
         href="/#"
         onClick={handleClick.bind(null, 'TODO')}
-        className={classNames({ 'is-active': value === 'TODO' })}
-      >やるべき事</a>
+        className={`tab ${value === 'TODO' ? 'selected' : ""}`}
+      >やる事</a>
       <a
         href="/#"
         onClick={handleClick.bind(null, 'DONE')}
-        className={classNames({ 'is-active': value === 'DONE' })}
-      >終わった事</a>
+        className={`tab ${value === 'DONE' ? 'selected' : ""}`}
+      >やった事</a>
     </div>
   );
 }

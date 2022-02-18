@@ -45,36 +45,48 @@ export const ToDo = (props) => {
   }
 
   const input = (
-    <div className=''>
-      <input className='title'
-        type='text'
-        value={tasktitle}
-        onChange={handleChangetasktitle}
+    <div className='all'>
+      <input
+        type="checkbox"
+        className='check'
+        disabled='disabled'
+        onChange={handleChange}
       >
       </input>
-      <input className='contents'
-        type='text'
-        value={taskcontents}
-        onChange={handleChangetasktcontents}
-      >
-      </input>
-      <div className='btn'>
+      <div className='todoin'>
+        <input className='titlein'
+          type='text'
+          value={tasktitle}
+          onChange={handleChangetasktitle}
+        >
+        </input>
+        <input className='contentsin'
+          type='text'
+          value={taskcontents}
+          onChange={handleChangetasktcontents}
+        >
+        </input>
+      </div>
+      <div className='backbtn'>
         <button
           type="button"
-          className="editbtn"
+          className="CNbtn"
           onClick={handleChangeNotEdit}
         >キャンセル</button>
         <button
           type="button"
-          className="deletebtn"
-          onClick={handleOnEdit}
+          className="savebtn"
+          onClick={() => {
+            handleOnEdit();
+            handleChangeNotEdit();
+          }}
         >保存</button>
       </div>
     </div>
   )
 
   const p = (
-    <div className={todo.done ? 'text done':'text'}>
+    <div className='all'>
       <input
         type="checkbox"
         className='check'
@@ -82,27 +94,28 @@ export const ToDo = (props) => {
         onChange={handleChange}
       >
       </input>
-        <p className={todo.done ? 'text done':'text'}>{tasktitle}</p>
-        <p className='contents'>{taskcontents}</p>
-        <div className='btn'>
-          <button
-            type="button"
-            className="editbtn"
-            onClick={handleChangeEdit}
-          >編集</button>
-          <button
-            type="button"
-            className="deletebtn"
-            onClick={deleteClick}
-          >削除</button>
-        </div>
+      <div className='todo'>
+        <p className={todo.done ? 'title done':'title'}>{tasktitle}</p>
+        <p className={todo.done ? 'contents done':'contents'}>{taskcontents}</p>
+      </div>
+      <div className='frontbtn'>
+        <button
+          type="button"
+          className="editbtn"
+          disabled={todo.done}
+          onClick={handleChangeEdit}
+        >編集</button>
+        <button
+          type="button"
+          className="deletebtn"
+          onClick={deleteClick}
+        >削除</button>
+      </div>
     </div>
   );
 
   return (
-    <div className="all" >
-      <div >{Editing ? p : input}</div>
-    </div>
+    <div>{Editing ? p : input}</div>
   );
 }
 

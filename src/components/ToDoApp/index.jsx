@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import 'bulma/css/bulma.css';
+import './styles.css';
 
 import { InputToDo, Filter, ToDo } from '../index';
 
@@ -79,8 +79,8 @@ export const  ToDoApp = () => {
   };
 
   return (
-    <div className="panel is-warning">
-      <div className="panel-heading">
+    <div >
+      <div className="header">
         ToDo
       </div>
       <InputToDo onAdd={handleAdd}/>
@@ -97,7 +97,7 @@ export const  ToDoApp = () => {
           onClick={deleteClick}
           />
       ))}
-      <div className="panel-block">
+      <div className="footer">
         {displayToDos.length} todos
       </div>
     </div>

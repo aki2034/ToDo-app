@@ -1,0 +1,13 @@
+.header{
+    font-size: 50px;
+    font-style: normal;
+    background-color: rgb(245, 184, 105);
+}
+
+.footer{
+    text-align: end;
+    height: 20px;
+    padding: 0px;
+    font-style: normal;
+    background-color: aquamarine;
+}

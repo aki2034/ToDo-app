@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import 'bulma/css/bulma.css';
+import './styles.css'
 
 export const InputToDo = (props) => {
 
@@ -25,15 +25,15 @@ export const InputToDo = (props) => {
     };
     
     return (
-      <div className="panel-block">
-        <input
+      <div className='input'>
+        <input className='title'
           class="input"
           type="text"
           placeholder="タイトル"  
           value={Title}
           onChange={handleChange}
         />
-        <input
+        <input className='contents'
           class="input"
           type="text"
           placeholder="内容"  
