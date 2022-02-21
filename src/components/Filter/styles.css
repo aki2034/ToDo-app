@@ -5,7 +5,8 @@
 }
 
 .tab{
-    margin: auto;
+    margin: 10px;
+    font-family:'Courier New', Courier, monospace ;
     font-size: 18px;
     color: blue;
 }

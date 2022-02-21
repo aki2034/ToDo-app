@@ -1,7 +1,11 @@
 .header{
-    font-size: 50px;
-    font-style: normal;
-    background-color: rgb(245, 184, 105);
+    display: flex;
+    justify-content: center;
+    font-family: unset;
+    font-weight: 900;
+    font-size: 40px;
+    height: 60px;
+    background-color: blanchedalmond;
 }
 
 .footer{
@@ -9,5 +13,5 @@
     height: 20px;
     padding: 0px;
     font-style: normal;
-    background-color: aquamarine;
+    background-color: rgb(255, 127, 244);
 }

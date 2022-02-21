@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import './styles.css';
 
 export const Filter = (props) => {
