@@ -79,15 +79,18 @@ export const  ToDoApp = () => {
   };
 
   return (
-    <div >
+    <div>
       <div className="header">
         ToDo
       </div>
+      <div className="body">
       <InputToDo onAdd={handleAdd}/>
       <Filter
         onChange={handleFilterChange}
         value={filter}
       />
+      </div>
+      <div className='list'>
       {displayToDos.map(todo => (
         <ToDo
           key={todo.key}
@@ -97,6 +100,7 @@ export const  ToDoApp = () => {
           onClick={deleteClick}
           />
       ))}
+      </div>
       <div className="footer">
         {displayToDos.length} todos
       </div>

@@ -44,5 +44,3 @@ export const InputToDo = (props) => {
       </div>
     );
   }
-
-export default InputToDo;
