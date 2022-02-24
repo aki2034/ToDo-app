@@ -16,17 +16,20 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    position: fixed;
-    margin-top: 60px;
+    margin-top: 65px;
+    margin-bottom: 25px;
     font-family: unset;
     font-weight: 900;
     font-size: 40px;
 }
 
 .footer{
+    justify-content: center;
     text-align: end;
     height: 20px;
-    padding: 0px;
-    font-style: normal;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    font-style: unset;
     background-color: rgb(255, 127, 244);
 }

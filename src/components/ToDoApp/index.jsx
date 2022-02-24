@@ -12,18 +12,17 @@ export const  ToDoApp = () => {
   const [todos, setToDos] = useState([]);
   const [filter, setFilter] = useState('ALL');
 
-
   useEffect(() => {
     console.log(todos)
   }, [todos] )
 
   // 入力値をtodos(配列)に設定
-  const handleAdd = (Title, Contents) => {
-    setToDos([...todos, { key: getKey(), Title, Contents, done: false }]);
+  const handleAdd = (time, title, contents) => {
+    setToDos([...todos, { key: getKey(), time, title, contents, done: false }]);
   };
 
   //項目の編集
-  const handleOnEdit = (key, Title, Contents) => {
+  const handleOnEdit = (key, title, contents) => {
     /**
      * ディープコピー:
      * 同じく Array.map() を利用するが、それぞれの要素をスプレッド構文で
@@ -41,8 +40,8 @@ export const  ToDoApp = () => {
     // ディープコピーされた配列に Array.map() を適用
     const newToDos = deepCopy.map((todo) => {
       if(todo.key === key) {
-        todo.Title = Title;
-        todo.Contents = Contents;
+        todo.title = title;
+        todo.contents = contents;
       }
       return todo;
     });
@@ -84,22 +83,20 @@ export const  ToDoApp = () => {
         ToDo
       </div>
       <div className="body">
-      <InputToDo onAdd={handleAdd}/>
-      <Filter
-        onChange={handleFilterChange}
-        value={filter}
-      />
-      </div>
-      <div className='list'>
-      {displayToDos.map(todo => (
-        <ToDo
-          key={todo.key}
-          todo={todo}
-          onCheck={handleCheck}
-          onChange={handleOnEdit}
-          onClick={deleteClick}
+        <InputToDo onAdd={handleAdd}/>
+        <Filter
+          onChange={handleFilterChange}
+          value={filter}
+        />
+        {displayToDos.map(todo => (
+          <ToDo
+            key={todo.key}
+            todo={todo}
+            onCheck={handleCheck}
+            onChange={handleOnEdit}
+            onClick={deleteClick}
           />
-      ))}
+        ))}
       </div>
       <div className="footer">
         {displayToDos.length} todos

@@ -5,34 +5,34 @@ export const ToDo = (props) => {
 
   // stateを作成
   const { todo, onCheck, onClick, onChange } = props;
-  const [ tasktitle, settasktitle ] = useState(todo.Title);
-  const [ taskcontents, settaskcontents ] = useState(todo.Contents);
-  const [ modeChange, setmodeChange ] = useState(true);
+  const [ taskTitle, setTaskTitle ] = useState(todo.title);
+  const [ taskContents, setTaskContents ] = useState(todo.contents);
+  const [ modeChange, setModeChange ] = useState(true);
 
   // チェックボックスを押した時、ToDoAppクラスの「handleCheck」関数を実行
   const handleChange = () => {
     onCheck(todo);
   };
 
-  const handleChangetasktitle = (e) => {
+  const handleChangeTaskTitle = (e) => {
     const value = e.target.value;
-    settasktitle(value)
+    setTaskTitle(value)
   };
 
   //
-  const handleChangetasktcontents = (e) => {
+  const handleChangeTaskContents = (e) => {
     const value = e.target.value;
-    settaskcontents(value)
+    setTaskContents(value)
   };
 
-  const handlemodeChange = () => {
-    setmodeChange(!modeChange)
+  const handleModeChange = () => {
+    setModeChange(!modeChange)
   };
 
   // 
   const handleEdit = () => {
-    onChange(todo.key, tasktitle, taskcontents);
-    handlemodeChange();
+    onChange(todo.key, taskTitle, taskContents);
+    handleModeChange();
   };
 
   // 削除ボタンを押した時、ToDoAppクラスの「deleteClick」関数を実行
@@ -55,21 +55,22 @@ return (
       />}
       </>
       <div className='todo'>
+        <p className='time'>{todo.time}</p>
         {modeChange ? 
         <>
-          <p className={todo.done ? 'title done':'title'}>{todo.Title}</p>
-          <p className={todo.done ? 'contents done':'contents'}>{todo.Contents}</p>
+          <p className={todo.done ? 'title done':'title'}>{todo.title}</p>
+          <p className={todo.done ? 'contents done':'contents'}>{todo.contents}</p>
         </> : 
         <>
           <input className='titlein'
             type='text'
-            value={tasktitle}
-            onChange={handleChangetasktitle}
+            value={taskTitle}
+            onChange={handleChangeTaskTitle}
         />
           <input className='contentsin'
             type='text'
-            value={taskcontents}
-            onChange={handleChangetasktcontents}
+            value={taskContents}
+            onChange={handleChangeTaskContents}
         />
         </>
         }
@@ -79,7 +80,7 @@ return (
           type="button"
           className="editbtn"
           disabled={todo.done}
-          onClick={handlemodeChange}
+          onClick={handleModeChange}
         >{modeChange ? '編集' : 'キャンセル' }</button>
         <button
           type="button"
