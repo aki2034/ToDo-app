@@ -5,7 +5,9 @@
     width: 100%;
     position: fixed;
     top: 0;
-    font-family: unset;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    font-family: Georgia, serif;
     font-weight: 900;
     font-size: 40px;
     background-color: blanchedalmond;
@@ -14,22 +16,19 @@
 .body{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     width: 100%;
     margin-top: 65px;
     margin-bottom: 25px;
-    font-family: unset;
-    font-weight: 900;
-    font-size: 40px;
 }
 
 .footer{
-    justify-content: center;
     text-align: end;
     height: 20px;
     width: 100%;
     position: fixed;
     bottom: 0;
-    font-style: unset;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgb(255, 127, 244);
 }

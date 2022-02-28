@@ -1,39 +1,44 @@
-.input{
+.inputall{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.inputtodo{
     display: flex;
     flex-direction: column;
-    text-align: center;
     font-size: 25px;
     font-family:Arial, Helvetica, sans-serif;
 }
 
-.title{
+.inputtitle{
     margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
     font-size: 25px;
     font-family:Arial, Helvetica, sans-serif;
 }
 
-.contents{
+.inputcontents{
     margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
     font-size: 25px;
     font-family:Arial, Helvetica, sans-serif;
 }
 
 .inputbtn{
-    margin-left: auto;
-    margin-right: auto; 
-    display: inline-block;
+    margin: auto;
+    margin-left: 20px;
     padding: 0.5em 1em;
     text-decoration: none;
-    background: rgb(236, 193, 144);/*ボタン色*/
-    color: #FFF;
+    background: gray;/*ボタン色*/
+    color: white;
     border-bottom: solid 4px #627295;
-    border-radius: 3px;
+    border-radius: 5px;
 }
 
 .inputbtn:active{

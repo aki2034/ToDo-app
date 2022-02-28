@@ -1,12 +1,11 @@
 .tabs{
     text-align: center;
-    margin: 0px;
     display: block;
 }
 
 .tab{
     margin: 10px;
-    font-family:'Courier New', Courier, monospace ;
+    font-family: serif;
     font-size: 18px;
     color: blue;
 }

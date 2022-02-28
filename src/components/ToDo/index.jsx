@@ -58,16 +58,16 @@ return (
         <p className='time'>{todo.time}</p>
         {modeChange ? 
         <>
-          <p className={todo.done ? 'title done':'title'}>{todo.title}</p>
-          <p className={todo.done ? 'contents done':'contents'}>{todo.contents}</p>
+          <p className={todo.done ? 'displaytitle done':'displaytitle'}>{todo.title}</p>
+          <p className={todo.done ? 'displaycontents done':'displaycontents'}>{todo.contents}</p>
         </> : 
         <>
-          <input className='titlein'
+          <input className='edittitle'
             type='text'
             value={taskTitle}
             onChange={handleChangeTaskTitle}
         />
-          <input className='contentsin'
+          <input className='editcontents'
             type='text'
             value={taskContents}
             onChange={handleChangeTaskContents}
@@ -78,13 +78,13 @@ return (
       <div className='btn'>
         <button
           type="button"
-          className="editbtn"
+          className={modeChange ? 'editbtn' : 'cancelbtn'}
           disabled={todo.done}
           onClick={handleModeChange}
         >{modeChange ? '編集' : 'キャンセル' }</button>
         <button
           type="button"
-          className="deletebtn"
+          className={modeChange ? 'deletebtn' : 'savebtn'}
           onClick={modeChange ? deleteClick : handleEdit}
         >{modeChange ? '削除' : '保存' }</button>
       </div>

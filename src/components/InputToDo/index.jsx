@@ -26,19 +26,21 @@ export const InputToDo = (props) => {
     };
     
     return (
-      <div className='input'>
-        <input className='title'
-          type="text"
-          placeholder="タイトル"  
-          value={title}
-          onChange={handleChange}
-        />
-        <input className='contents'
-          type="text"
-          placeholder="内容"  
-          value={contents}
-          onChange={handleChange2}
-        />
+      <div className='inputall'>
+        <div className='inputtodo'>
+          <input className='inputtitle'
+            type="text"
+            placeholder="タイトル"  
+            value={title}
+            onChange={handleChange}
+          />
+          <input className='inputcontents'
+            type="text"
+            placeholder="内容"  
+            value={contents}
+            onChange={handleChange2}
+          />
+        </div>
         <button 
           className='inputbtn'
           type="button"
